@@ -1,0 +1,48 @@
+[alias]
+	# ================================================================
+	# ステージング関係 - 基本操作
+	# ================================================================
+
+	# a: "add" の略。指定したファイルをステージングします。
+	a = add
+
+	# ad: "add dot" の略。カレントディレクトリ以下の全変更をステージングします。
+	ad = add .
+
+	# aa: "add all" の略。プロジェクト全体の全変更（追跡済み・未追跡問わず）をステージングします。
+	aa = add -A
+
+	# ap: "add patch" の略。インタラクティブモードで変更を選択し、1パッチずつステージングします。
+	ap = add -p
+
+	# au: "add update" の略。追跡済みファイルの変更のみをステージングします（未追跡ファイルは無視）。
+	au = add -u
+
+	# us: "unstaged" の略。ステージングから指定したファイルを除外します（Git 2.23以降推奨）。
+	# 古いGitバージョンでは以下を使用してください:
+	#    us = reset HEAD --
+	us = restore --staged
+
+	# s: "status" の略。作業ツリーの状態を表示します。
+	s = status
+
+	# ds: "diff staged" の略。ステージ済みの差分を表示します。
+	ds = diff --staged
+
+	# rf: "restore file" の略。指定したソースからファイルをリストアする関数形式。
+	rf = "!f() { git restore --source=\"$1\" -- \"$2\"; }; f"
+
+	# st: "stash" の略。現在の変更を stash に保存します。
+	st = stash
+
+	# sl: "stash list" の略。stash に保存された一覧を表示します。
+	sl = stash list
+
+	# sa: "stash apply" の略。指定した stash を適用します。
+	sa = stash apply
+
+	# sp: "stash pop" の略。stash を適用して自動的に削除します。
+	sp = stash pop
+
+	# sd: "stash drop" の略。指定した stash を削除します。
+	sd = stash drop

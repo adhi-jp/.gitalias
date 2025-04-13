@@ -1,0 +1,26 @@
+[alias]
+	# ================================================================
+	# ブランチ関連
+	# ================================================================
+
+	# b: "branch" の略。ローカルブランチの一覧を表示します。
+	b = branch
+
+	# ba: "branch all" の略。ローカルとリモートの全ブランチを表示します。
+	ba = branch -a
+
+	# bd: "branch delete" の略。指定したローカルブランチを強制削除します。
+	# 使用例: "git bd feature-xxx" は "git branch -D feature-xxx" を実行します。
+	bd = branch -D
+
+	# br: "branch rename" の略。ブランチ名を変更します。
+	# 使用例: "git br old-name new-name" は "git branch -M old-name new-name" を実行します。
+	# 旧ブランチ名を省略すると、現在のブランチ名を変更します。
+	br = branch -M
+
+	# sw: "switch" の略。指定したブランチに切り替えます。
+	# 使用例: "git sw branch-name" は "git switch branch-name" を実行します。
+	sw = switch
+
+	# bc: "branch create" の略。指定した名前の新しいブランチを作成して切り替えます。
+	bc = switch -c

@@ -1,0 +1,21 @@
+[include]
+	path = ./aliases/branch.gitconfig
+	path = ./aliases/commit.gitconfig
+	path = ./aliases/log.gitconfig
+	path = ./aliases/staging.gitconfig
+
+[alias]
+	# alias: 登録済みのGitエイリアス一覧を表示
+	show-alias = "!f() { \
+		git config --list --show-origin \
+			| awk '{gsub(/^file:/, \"\"); print $1}' \
+			| grep '\\./aliases/.*\\.gitconfig' \
+			| sort -u \
+			| xargs cat \
+			| sed -E '\
+				s/^\\[alias\\]$//; \
+				s/^[[:space:]]*//; \
+				/^#/!s/^([^=]+)=(.*)$/\\x1b[36m\\1\\x1b[0m=\\2/; \
+				s/^#(.*)/\\x1b[32m#\\1\\x1b[0m/' \
+			| less -R; \
+	}; f"

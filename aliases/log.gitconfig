@@ -1,0 +1,32 @@
+[alias]
+	# ================================================================
+	# ログ関連
+	# ================================================================
+
+	# l: "log" の略。通常のログを表示します。
+	l = log
+
+	# la: "log all" の略。すべてのブランチやタグを対象に、グラフ構造付きで詳細なログを表示します。
+	# 日付、コミットハッシュ、作者、相対時間、ブランチ/タグ情報をカラフルに整形して表示します。
+	la = log --all --graph --date=format:'%Y-%m-%d %H:%M:%S' --abbrev-commit --decorate --format=format:'%C(yellow)%h%C(reset) %C(blue)%ad%C(reset) %C(green)%an%C(reset): %C(bold white)%s%C(auto)%d %C(dim white)[%ar]%C(reset)'
+
+	# ls: "log simple" の略。現在のブランチのログを簡易的に整形して表示します。
+	# 日付、コミットハッシュ、作者、相対時間、サマリを含む簡潔なログビューを提供します。
+	ls = log --date=format:'%Y-%m-%d %H:%M:%S' --format=format:'%C(yellow)%h %C(blue)%ad %C(green)%an%C(auto): %s%d %C(dim white)[%ar]%C(reset)'
+
+	# ln: "log number" の略。最新から指定した数のコミットをリストします。
+	# 使用例: "git ln 1" は最新の1件のコミットを表示します。
+	ln = !git ls -n
+
+	# lh: "log head" の略。最新の1件のコミットを表示します。
+	lh = !git ln 1
+
+	# lt: "log tree" の略。すべてのブランチとタグをグラフ構造で簡潔に表示します。
+	# コミットIDを短縮表示し、装飾付きでブランチ/タグ構造を一望できます。
+	lt = log --all --graph --decorate --oneline --simplify-by-decoration
+
+	# dc: 差分コミットのログを表示します。第一引数: 開始ブランチ（デフォルト: origin/main）、第二引数: 終了ブランチ（デフォルト: HEAD）
+	dc = "!f() { from=${1:-origin/main}; to=${2:-HEAD}; git log --format=format:'%C(yellow)%h %C(blue)%ad%C(reset) / %C(green)%cd' --date=format:'%Y-%m-%d %H:%M:%S' $from..$to; }; f"
+
+	# lc: ログ比較を行います。第一引数: 開始ブランチ（デフォルト: origin/main）、第二引数: 終了ブランチ（デフォルト: HEAD）
+	lc = "!f() { from=${1:-origin/main}; to=${2:-HEAD}; git log --format=format:'%C(yellow)%h %C(blue)%cd %C(green)%an%C(auto): %s' --date=format:'%Y-%m-%d %H:%M:%S' $from..$to; }; f"

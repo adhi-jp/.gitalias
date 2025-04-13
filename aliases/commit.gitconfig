@@ -1,0 +1,85 @@
+[alias]
+	# ================================================================
+	# コミット関連
+	# ================================================================
+
+	# c: "commit" の略。通常のコミットを実行します。
+	c = commit
+
+	# cm: "commit with message" の略。指定したメッセージで即座にコミットします。
+	# 使用例: "git cm 'メッセージ'" は "git commit -m 'メッセージ'" を実行します。
+	cm = commit -m
+
+	# ca: "commit amend" の略。直前のコミットを修正します。
+	# エディタでコミットメッセージを再編集できます。
+	ca = commit --amend
+
+	# cu: "commit update" の略。直前のコミットメッセージを変更せずに内容を更新します。
+	# 使用例: "git cu" は "git commit --amend --no-edit" を実行します。
+	cu = commit --amend --no-edit
+
+	# fixup: "fixup commit" の略。指定したコミットに対する修正用コミットを作成します。
+	# 後で "git rebase -i --autosquash" で統合可能です。
+	fixup = commit --fixup
+
+	# cp: "cherry-pick" の略。指定したコミットを現在のブランチに取り込みます。
+	cp = cherry-pick
+
+	# cpa: "cherry-pick abort" の略。cherry-pick 処理を中断します。
+	cpa = cherry-pick --abort
+
+	# cpc: "cherry-pick continue" の略。コンフリクト解消後に cherry-pick を継続します。
+	cpc = cherry-pick --continue
+
+	# ps: "push" の略。現在のブランチをリモートにプッシュします。
+	ps = push
+
+	# pso: "push origin" の略。origin に対してプッシュします。
+	pso = push origin
+
+	# psm: "push origin main" の略。origin の main ブランチにプッシュします。
+	psm = push origin main
+
+	# psh: "push origin HEAD" の略。HEAD を origin にプッシュします。
+	psh = push origin HEAD
+
+	# qc: "quick commit" の略。全変更をステージしてメッセージ付きでコミットします。
+	# 使用例: "git qc 'メッセージ'" は "git add . && git commit -m 'メッセージ'" を実行します。
+	qc = !git add . && git commit -m
+
+	# qu: "quick update commit" の略。追跡済みファイルの変更をステージし、直前のコミットを更新します。
+	# 使用例: "git qu" は "git add -u && git commit --amend --no-edit" を実行します。
+	qu = !git add -u && git commit --amend --no-edit
+
+	# rb: "rebase" の略。指定したブランチ上に rebase を実行します。
+	rb = rebase
+
+	# rba: "rebase abort" の略。rebase 処理を中断します。
+	rba = rebase --abort
+
+	# rbc: "rebase continue" の略。コンフリクト解消後に rebase を継続します。
+	rbc = rebase --continue
+
+	# rbi: "rebase interactive" の略。インタラクティブな rebase を開始します。
+	# 使用例: "git rbi branch-name" でコミットの並び替えや修正が可能です。
+	rbi = rebase -i
+
+	# rs: "reset" の略。指定したオプションでリセットを実行します。
+	# 使用例: "git rs --soft HEAD~1" で直前のコミットをソフトリセットします。
+	rs = reset
+
+	# rsh: "reset hard" の略。ワークツリーとインデックスを完全に HEAD に戻します。
+	# 注意: 非常に破壊的な操作です。
+	rsh = reset --hard
+
+	# pl: "pull --rebase --autostash" の略。自動スタッシュを利用しつつリベース付きでプルします。
+	pl = pull --rebase --autostash
+
+	# mg: "merge" の略。指定したブランチをマージします。
+	mg = merge
+
+	# mga: "merge abort" の略。マージを中断します。
+	mga = merge --abort
+
+	# mgc: "merge continue" の略。コンフリクト解消後にマージを継続します。
+	mgc = merge --continue
